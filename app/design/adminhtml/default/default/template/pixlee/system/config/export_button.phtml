@@ -1,0 +1,28 @@
+<script type="text/javascript">
+//<![CDATA[
+function exportToPixlee(url) {
+  if($('pixlee_export_button').hasClassName('disabled')) {
+    return;
+  }
+  $('pixlee_export_button').addClassName('disabled');
+  new Ajax.Request(url, {
+    method:    'get',
+      onSuccess: function(transport){
+        if (transport.responseText){
+          var json = transport.responseText.evalJSON(true);
+          if(json.pixlee_remaining_text) {
+            $('pixlee_remaining').update(json.pixlee_remaining_text);
+          }
+          if(json.action == 'continue' && json.url) {
+            $('pixlee_export_button').removeClassName('disabled');
+            exportToPixlee(json.url);
+          }
+        }
+      }
+  });
+}
+//]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>
+<p class="note"><span id="pixlee_remaining"><?php echo Mage::helper('pixlee')->getPixleeRemainingText(); ?></span></p>

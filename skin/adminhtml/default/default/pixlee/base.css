@@ -1,0 +1,7 @@
+.pixlee-base > dl > dt.label > div {
+  height: 16px;
+  margin: 2px 0;
+  text-indent: -9999px;
+  background: url("pixlee_logo_133x24.png") no-repeat 0px 0px;
+  background-size: contain;
+}

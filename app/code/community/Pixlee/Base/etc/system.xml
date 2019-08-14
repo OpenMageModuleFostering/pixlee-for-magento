@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <tabs>
+    <pixlee translate="label" module="pixlee">
+      <label><![CDATA[<div>Pixlee</div>]]></label>
+      <class>pixlee-base</class>
+      <sort_order>100</sort_order>
+    </pixlee>
+  </tabs>
+  <sections>
+    <request translate="label" module="pixlee">
+      <label>New Downloads</label>
+      <tab>pixlee</tab>
+      <sort_order>1000</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <demo translate="label" module="pixlee">
+          <label>Not a Customer?</label>
+          <comment>Please submit the following form and we will get in touch with you shortly</comment>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <expanded>1</expanded>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <name translate="label">
+              <label>Your Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </name>
+            <email translate="label">
+              <label>Your Email</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </email>
+            <website translate="label">
+              <label>Your Website</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </website>
+            <request_demo translate="label">
+              <label>Request Access</label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>pixlee/adminhtml_system_config_form_demo</frontend_model>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </request_demo>
+          </fields>
+        </demo>
+      </groups>
+    </request>
+    <pixlee translate="label" module="pixlee">
+      <label>Pixlee Account Configuration</label>
+      <tab>pixlee</tab>
+      <sort_order>1100</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <pixlee translate="label" module="pixlee">
+          <label>API Credentials</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>2</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <comment><![CDATA[You can find your API credentials under <strong>Settings > Pixlee API</strong> in the Pixlee web application. The user ID, api key, and secret key are all necessary to connect to Pixlee.]]></comment>
+          <fields>
+            <account_id translate="label">
+              <label><![CDATA[Account ID <span style="color:#F00">*</span>]]></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account_id>
+            <account_api_key translate="label">
+              <label><![CDATA[Account API Key <span style="color:#F00">*</span>]]></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>20</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account_api_key>
+            <account_secret_key translate="label">
+              <label><![CDATA[Account Secret Key <span style="color:#F00">*</span>]]></label>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </account_secret_key>
+            <check translate="label">
+              <label>Export Products</label>
+              <frontend_type>button</frontend_type>
+              <frontend_model>pixlee/adminhtml_system_config_form_export</frontend_model>
+              <sort_order>60</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </check>
+          </fields>
+        </pixlee>
+        <widget_options translate="label" module="pixlee">
+          <label>PDP Widget Options</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>3</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <widget_id translate="label">
+              <label>PDP Widget ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>70</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>You can get this from "Install PDP Widget" (Navigate to "Albums" and then "Products")</comment>
+            </widget_id>
+            <category_widget_id translate="label">
+              <label>Category Widget ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>70</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>You can get this from "Install PDP Widget" (Navigate to "Albums" and then "Products")</comment>
+            </category_widget_id>
+          </fields>
+        </widget_options>
+        <advanced translate="label" module="pixlee">
+          <label>Advanced</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>4</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enable_analytics translate="label">
+              <label>Enable Commerce Analytics</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>90</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Toggle sending commerce data on a per-store basis.</comment>
+            </enable_analytics>
+            <export_variants_separately translate="label">
+              <label>Export Variants Separately</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>100</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Export variants (simple products that exist under a configurable) as their own products (e.g. colors/sizes).</comment>
+            </export_variants_separately>
+            <export_imageless_products translate="label">
+              <label>Export Image-less Products</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>110</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Export products even if they don't have images. (Not recommended!)</comment>
+            </export_imageless_products>
+          </fields>
+        </advanced>
+      </groups>
+    </pixlee>
+  </sections>
+</config>

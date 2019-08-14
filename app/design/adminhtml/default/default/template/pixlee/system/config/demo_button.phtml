@@ -1,0 +1,44 @@
+<script type="text/javascript">
+//<![CDATA[
+function requestDemo() {
+  var name = document.getElementById('request_demo_name').value
+  var email = document.getElementById('request_demo_email').value
+  var website = document.getElementById('request_demo_website').value
+
+
+  if (name === '') {
+      alert('Name cannot be empty. Please try again.');
+      return;
+  }
+  if (email === '') {
+      alert('Email cannot be empty. Please try again.');
+      return;
+  
+  }
+
+  var params = "?source=magento_1_request_demo&name=" + name + "&email=" + email + "&website" + website;
+
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (this.readyState == 4) {
+      if (this.status >= 200 && this.status < 400) {
+        var response = JSON.parse(this.responseText);
+        if (response && response.result === "Successful") {
+            $('request_demo_button').addClassName('disabled');
+            alert('Thanks for requesting access. We will get in touch with you shortly.');
+        } else {
+            alert('Opps! Something went wrong. While we are working on resolving the issue, feel free to reach us at hi@pixleeteam.com');
+        }
+      } else {
+        alert('Opps! Something went wrong. While we are working on resolving the issue, feel free to reach us at hi@pixleeteam.com');
+      }
+    }
+  }
+
+  request.open('POST', "https://app.pixlee.com/leads/add" + params, true);
+  request.send();
+}
+//]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

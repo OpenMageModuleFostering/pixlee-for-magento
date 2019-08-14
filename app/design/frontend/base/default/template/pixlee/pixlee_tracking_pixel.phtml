@@ -1,0 +1,6 @@
+<?php
+$pixleeAccountApiKey = Mage::getStoreConfig('pixlee/pixlee/account_api_key', Mage::app()->getStore());
+?>
+<script id="initialize_pixlee_tracking">
+  pixlee_analytics = new Pixlee_Analytics('<?php echo $pixleeAccountApiKey; ?>');
+</script>

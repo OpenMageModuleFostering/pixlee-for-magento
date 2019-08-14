@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <!--
+       You should be able to make the following call on any page:
+
+       <?php echo $this->getLayout()->createBlock('pixlee/gallery')->toHtml(); ?>
+
+       The above will embed the Pixlee gallery in place and handle any
+       responsive design you can throw at it.
+
+       The Pixlee extension will attempt to discern the current product's
+       SKU automatically in order to display the correct gallery, but if
+       it is unable to do so you can explicitly set the product SKU with
+       the "setProductSku" function like so:
+
+       <?php echo $this->getLayout()->createBlock('pixlee/gallery')->setProductSku($SKU)->toHtml(); ?>
+   -->
+
+   <!-- How to insert your JavaScript on all Magento pages? http://magento.stackexchange.com/questions/59897/load-js-in-footer-in-magento -->
+
+  <default>
+    <reference name="head">
+       <block type="core/text" name="pixlee_events">
+          <action method="setText">
+            <text>
+               <![CDATA[
+                <script type="text/javascript" src="https://assets.pixlee.com/assets/pixlee_events.js"></script>
+              ]]>
+            </text>
+          </action>
+       </block>
+       <block type="page/html" name="pixlee_events_invocation" template="pixlee/pixlee_tracking_pixel.phtml"/>
+    </reference>
+  </default>
+
+</layout>

@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/pixlee-for-magento",
+    "type": "magento-module",
+    "license": "MIT",
+    "homepage": "",
+    "description": "Pixlee extension to export products and capture cart events.",
+    "authors": [
+    {
+        "name": "Awad Sayeed",
+        "email": "awad@pixleeteam.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

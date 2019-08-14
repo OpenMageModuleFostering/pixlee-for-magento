@@ -1,0 +1,95 @@
+eav:
+  catalog_product:
+    - entity_id: 1 # Shown product
+      type_id: simple
+      sku: showsup1
+      name: Shows up 1
+      url_key: showsup1
+      stock:
+        qty: 100
+        is_in_stock: 1
+      website_ids:
+        - admin
+      category_ids:
+        - 2 # Default Category
+      price: 10.00
+      tax_class_id: 2 # Taxable goods
+      status: 1 # Enabled
+      visibility: 4 # Visible in catalog & search
+
+    - entity_id: 2 # Shown product
+      type_id: configurable
+      sku: showsup2
+      name: Shows up 2
+      url_key: showsup2
+      stock:
+        qty: 100
+        is_in_stock: 1
+      website_ids:
+        - admin
+      category_ids:
+        - 2 # Default Category
+      price: 10.00
+      tax_class_id: 2 # Taxable goods
+      status: 1 # Enabled
+      visibility: 3 # Visible in search
+
+    - entity_id: 3 # Shown product
+      type_id: configurable
+      sku: showsup3
+      name: Shows up 3
+      url_key: showsup3
+      stock:
+        qty: 100
+        is_in_stock: 1
+      website_ids:
+        - admin
+      category_ids:
+        - 2 # Default Category
+      price: 10.00
+      tax_class_id: 2 # Taxable goods
+      status: 1 # Enabled
+      visibility: 2 # Visible in catalog
+
+    - entity_id: 4 # Hidden product
+      type_id: simple
+      sku: hidden1
+      name: Hidden 1
+      short_description: This product is hidden.
+      description: This product is hidden.
+      url_key: hidden1
+      stock:
+        qty: 100
+        is_in_stock: 1
+      website_ids:
+        - admin
+      category_ids:
+        - 2 # Default Category
+      price: 10.00
+      tax_class_id: 2 # Taxable goods
+      status: 1 # Enabled
+      visibility: 1 # Not visible individually
+
+    - entity_id: 5 # Hidden product (This one is hidden due to already being exported)
+      type_id: simple
+      sku: hidden2
+      name: Hidden 2
+      short_description: This product is hidden.
+      description: This product is hidden.
+      url_key: hidden1
+      stock:
+        qty: 100
+        is_in_stock: 1
+      website_ids:
+        - admin
+      category_ids:
+        - 2 # Default Category
+      price: 10.00
+      tax_class_id: 2 # Taxable goods
+      status: 1 # Enabled
+      visibility: 4 # Visible in catalog & search
+
+tables:
+  px_product_albums:
+      - product_id: 5
+        pixlee_album_id: 1

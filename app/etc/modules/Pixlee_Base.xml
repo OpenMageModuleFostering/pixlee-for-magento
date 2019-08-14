@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Pixlee_Base>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends></depends>
+        </Pixlee_Base>
+    </modules>
+</config>

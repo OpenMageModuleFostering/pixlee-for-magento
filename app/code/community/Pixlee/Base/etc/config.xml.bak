@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Pixlee_Base>
+      <version>2.0.0.22</version>
+    </Pixlee_Base>
+  </modules>
+  <default>
+    <pixlee>
+      <advanced>
+        <enable_analytics>1</enable_analytics>
+        <export_variants_separately>0</export_variants_separately>
+        <export_imageless_products>0</export_imageless_products>
+      </advanced>
+    </pixlee>
+  </default>
+  <global>
+    <blocks>
+      <pixlee>
+        <class>Pixlee_Base_Block</class>
+      </pixlee>
+    </blocks>
+    <helpers>
+      <pixlee>
+        <class>Pixlee_Base_Helper</class>
+      </pixlee>
+    </helpers>
+    <models>
+      <pixlee>
+        <class>Pixlee_Base_Model</class>
+        <resourceModel>pixlee_resource</resourceModel>
+      </pixlee>
+      <pixlee_resource>
+        <class>Pixlee_Base_Model_Resource</class>
+        <entities>
+          <product_album>
+            <table>px_product_albums</table>
+          </product_album>
+        </entities>
+      </pixlee_resource>
+    </models>
+    <resources>
+      <pixlee_base_setup>
+        <setup>
+          <module>Pixlee_Base</module>
+          <class>Pixlee_Base_Model_Resource_Setup</class>
+        </setup>
+        <connection>
+          <use>core_setup</use>
+        </connection>
+      </pixlee_base_setup>
+    </resources>
+    <events>
+      <!-- CHECKOUT START -->
+      <controller_action_predispatch_checkout_onepage_index>
+        <observers>
+          <pixlee_checkout_start>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>checkoutStart</method>
+          </pixlee_checkout_start>
+        </observers>
+      </controller_action_predispatch_checkout_onepage_index>
+
+      <!-- CHECKOUT SUCCESS -->
+      <checkout_onepage_controller_success_action>
+        <observers>
+          <pixlee_checkout_success>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>checkoutSuccess</method>
+          </pixlee_checkout_success>
+        </observers>
+      </checkout_onepage_controller_success_action>
+
+      <!-- ADD TO CART -->
+      <checkout_cart_add_product_complete>
+        <observers>
+          <pixlee_add_cart_analytics>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>addToCart</method>
+          </pixlee_add_cart_analytics>
+        </observers>
+      </checkout_cart_add_product_complete>
+
+      <!-- REMOVE FROM CART -->
+      <sales_quote_remove_item>
+        <observers>
+          <pixlee_remove_cart_analytics>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>removeFromCart</method>
+          </pixlee_remove_cart_analytics>
+        </observers>
+      </sales_quote_remove_item>
+
+      <!-- CANCEL ORDER -->
+      <order_cancel_after>
+        <observers>
+          <pixlee_cancel_order_analytics>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>cancelOrder</method>
+          </pixlee_cancel_order_analytics>
+        </observers>
+      </order_cancel_after>
+
+      <!-- ADMIN: CHECK IF NEW PRODUCT OR UPDATING -->
+      <catalog_product_save_before>
+        <observers>
+          <send_new_product_to_pixlee>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>isNewProductCheck</method>
+          </send_new_product_to_pixlee>
+        </observers>
+      </catalog_product_save_before>
+
+      <!-- ADMIN: CREATE NEW PRODUCT -->
+      <catalog_product_save_after>
+        <observers>
+          <send_new_product_to_pixlee>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>createProductTrigger</method>
+          </send_new_product_to_pixlee>
+        </observers>
+      </catalog_product_save_after>
+
+      <!-- ADMIN: SAVE PIXLEE CONFIGURATION -->
+      <admin_system_config_changed_section_pixlee>
+        <observers>
+          <validate_pixlee_credentials>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>validateCredentials</method>
+          </validate_pixlee_credentials>
+        </observers>
+      </admin_system_config_changed_section_pixlee>
+
+      <!-- ADMIN: IMPORT PRODUCTS -->
+      <catalog_product_import_finish_before>
+        <observers>
+          <pixlee_export_products_trigger>
+            <type>singleton</type>
+            <class>pixlee/observer</class>
+            <method>exportProductsTrigger</method>
+          </pixlee_export_products_trigger>
+        </observers>
+      </catalog_product_import_finish_before>
+    </events>
+  </global>
+  <frontend>
+    <layout>
+      <updates>
+        <pixlee>
+          <file>pixlee/gallery.xml</file>
+        </pixlee>
+      </updates>
+    </layout>
+  </frontend>
+  <adminhtml>
+    <layout>
+      <updates>
+        <pixlee>
+          <file>pixlee/base.xml</file>
+        </pixlee>
+      </updates>
+    </layout>
+    <acl>
+      <resources>
+        <all>
+          <title>Allow Everything</title>
+        </all>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <pixlee>
+                      <title>Pixlee - Base</title>
+                    </pixlee>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <Pixlee_Base after="Mage_Adminhtml">Pixlee_Base</Pixlee_Base>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+  <phpunit>
+    <suite>
+      <modules>
+        <Pixlee_Base />
+      </modules>
+    </suite>
+  </phpunit>
+</config>
